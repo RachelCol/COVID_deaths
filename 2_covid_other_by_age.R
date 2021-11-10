@@ -5,12 +5,16 @@
 # Deaths due to COVID, other, and total, All Ages
 combined <- COVID[COVID$age_group == "All Ages",]
 combined$week_number <- c(1:80)
-combined_plot <- ggplot(combined, aes(x=week_number, y=percent_deaths_covid, group = 1)) +
-  geom_line() + xlab("weeks") + ylab("percent") + 
-  ggtitle("COVID deaths as a percent of Total Deaths, All Ages, \n weeks ending 2/22/20 to 8/28/21")
+combined_chart <- ggplot() + 
+  geom_line(data = combined, aes(x = week_number, y = total_deaths), color = "black") +
+  geom_line(data = combined, aes(x = week_number, y = other_deaths), color = "blue") +
+  geom_line(data = combined, aes(x = week_number, y = covid_deaths), color = "red") +
+  xlab('Weeks') +
+  ylab('Deaths') +
+  ggtitle("Deaths, ages 85 and over, weeks ending 2/22/20 to 8/28/21, \n total (black) v. non-COVID (blue) v. COVID (red)")
 
 pdf(file="charts/by_age/all_ages.pdf")
-combined_plot
+combined_chart
 dev.off()
 
 # Deaths due to COVID, other, and total, 85 Years and Over

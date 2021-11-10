@@ -135,6 +135,10 @@ ages_over_time <- ggplot(data = SEGMENTS, aes(x = weeks)) +
 
 print(ages_over_time)
 
+pdf(file="charts/covid_deaths_as_a_percent_of_all_deaths.pdf")
+ages_over_time
+dev.off()
+
 
 # COVID deaths by week, by age
 
@@ -164,6 +168,10 @@ raw_covid_deaths <- ggplot(data = NUMBERS, aes(x = weeks)) +
 
 print(raw_covid_deaths)
 
+pdf(file="charts/deaths_to_covid_by_age.pdf")
+raw_covid_deaths
+dev.off()
+
 
 # ALL Deaths by week, by age
 
@@ -192,5 +200,9 @@ raw_total_deaths <- ggplot(data = ALL_DEATHS, aes(x = weeks)) +
   ggtitle("Raw COVID deaths by age, \n weeks ending 2/22/20 to 8/28/21") 
 
 print(raw_total_deaths)
+
+pdf(file="charts/total_deaths_by_age_all_causes.pdf")
+raw_total_deaths
+dev.off()
 
 # end script
