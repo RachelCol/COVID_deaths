@@ -31,12 +31,12 @@ part$other_deaths
 # create a plot to help visualize
 plot(part$other_deaths)
 
-# Remove most recent four weeks of data (these tend to still be incomplete)
+# Remove most recent four weeks of data (these tend to be incomplete)
+# note: each week of data comprises 12 rows (it's broken down by age)
 # note: with the above data set, the last week included ends 10/09/21
 COVID <- COVID[1:(nrow(COVID)-48),]
 
-# note: if running this script with an updated data set, will need to
-# update the date in the ggplot bits in other scripts. 
+# note: plot titles will update to reflect which weeks are included.
 
 # -----
 
