@@ -29,8 +29,8 @@ raw_covid_deaths <- ggplot(data = NUMBERS, aes(x = weeks)) +
                       breaks = c("Ages_0_to_14", "Ages_15_to_34", "Ages_35_to_54", "Ages_55_to_74", "Ages_75_and_up"),
                       values = c("red", "orange", "green", "blue", "purple")) +
   xlab('Weeks') +
-  ylab('Percent') +
-  scale_y_continuous(limits = c(0,50000)) + 
+  ylab('Number of Deaths') +
+  scale_y_continuous(limits = c(0,17500)) + 
   ggtitle(paste("COVID deaths by age, \n weeks ending", 
           COVID[1, 4], "to", COVID[nrow(COVID), 4])) 
 
